@@ -95,7 +95,9 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public BaseResponse addArticle(ArticleEntity request) throws RuntimeException {
         BaseResponse response = new BaseResponse();
-        int result = articleMapper.addArticle(request);
+        int articleID = articleMapper.addArticle(request);
+        request.setArticleID(articleID);
+        int result = articleMapper.addContent(request);
         if(result > 0){
             response.setSuccess(true);
         }

@@ -35,35 +35,43 @@
         u.userName,
         articleIssueTime,
         articleRead
-      from article_table as a left join user_table as u on a.userID = u.userID
+      from article_table as a inner join content_tabl as c on a.articleID = c.articleID
+      left join user_table as u on a.userID = u.userID
       where a.articleID = #{articleID}
     </select>
 
     <update id="updateArticle">
-        update article_table
-        set articleTitle = #{articleTitle}, articleCountent = #{articleCountent}
+        update a,c
+        set a.articleTitle = #{articleTitle}, c.articleCountent = #{articleCountent}
+        from article_table as a inner join content_tabl as c on a.articleID = c.articleID
         where articleID = #{articleID}
     </update>
 
-    <insert id="addArticle">
+    <insert id="addArticle"  useGeneratedKeys="true" keyProperty="articleID">
         insert into article_table(
         articleTitle,
-        articleCountent,
         pictureCatalog,
         userID,
         articleIssueTime)
         values (
         #{articleTitle},
-        #{articleCountent},
         #{pictureCatalog},
         #{userID},
-        now()
-        )
+        now())
+    </insert>
+
+    <insert id="addContent">
+        insert into content_table(
+        articleID,
+        articleCountent)
+        values (
+        #{articleID},
+        #{articleCountent})
     </insert>
 
     <delete id="deleteArticle">
-        delete a, co
-        from article_table as a left join comment_table as co on a.articleID = co.articleID
+        delete a, c, co
+        from article_table as a inner join content_tabl as c on a.articleID = c.articleID left join comment_table as co on a.articleID = co.articleID
         where a.articleID = #{articleID}
     </delete>
 </mapper>
