@@ -1,0 +1,620 @@
+2020-04-14 19:08:15,268 INFO (StartupInfoLogger.java:55)- Starting BlogGardenSystemApplication on DESKTOP-627VPTB with PID 952 (started by ZSP in E:\Program Files (x86)\JetBrains\JavaCode\blog-garden-system)
+2020-04-14 19:08:15,362 DEBUG (StartupInfoLogger.java:56)- Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+2020-04-14 19:08:15,362 INFO (SpringApplication.java:651)- No active profile set, falling back to default profiles: default
+2020-04-14 19:08:18,272 INFO (StartupInfoLogger.java:61)- Started BlogGardenSystemApplication in 4.049 seconds (JVM running for 6.784)
+2020-04-14 19:16:38,680 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:16:38,709 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 0(Integer), 0(Integer), null, null, null, null
+2020-04-14 19:16:38,803 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:16:38,803 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleIssueTime desc LIMIT ? 
+2020-04-14 19:16:38,803 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 0(Integer), 0(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:16:38,818 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 3
+2020-04-14 19:17:01,479 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT userID,userAccount,usrePassword,userName,userRead,userIssue,userIntro FROM user_table WHERE (userID = ? OR ? = 0) AND (userAccount = ? OR ? IS NULL) 
+2020-04-14 19:17:01,480 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 0(Integer), 0(Integer), zsp@blog.com(String), zsp@blog.com(String)
+2020-04-14 19:17:01,484 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:17:05,975 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:17:05,976 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 0(Integer), 0(Integer), null, null, null, null
+2020-04-14 19:17:05,978 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:17:05,985 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleRead desc LIMIT ? 
+2020-04-14 19:17:05,987 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 0(Integer), 0(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:17:05,991 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 3
+2020-04-14 19:17:06,934 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:17:06,935 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 0(Integer), 0(Integer), null, null, null, null
+2020-04-14 19:17:06,938 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:17:06,941 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleIssueTime desc LIMIT ? 
+2020-04-14 19:17:06,942 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 0(Integer), 0(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:17:06,946 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 3
+2020-04-14 19:17:07,924 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select articleID, articleTitle, articleCountent, pictureCatalog, a.userID, u.userName, articleIssueTime, articleRead from article_table as a left join user_table as u on a.userID = u.userID where a.articleID = ? 
+2020-04-14 19:17:07,926 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select commentID, commentSerialNumber,userID,commentContent,commentTime from comment_table where articleID = ? order by commentTime desc
+2020-04-14 19:17:07,926 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 3(Integer)
+2020-04-14 19:17:07,927 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 3(Integer)
+2020-04-14 19:17:07,932 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:17:07,940 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 7
+2020-04-14 19:17:13,954 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: insert into comment_table( articleID, commentSerialNumber, userID, commentContent, commentTime ) values ( ?, ?, ?, ?, now() )
+2020-04-14 19:17:13,955 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 3(Integer), 0(Integer), zsp(String), 123(String)
+2020-04-14 19:17:14,018 DEBUG (BaseJdbcLogger.java:143)- <==    Updates: 1
+2020-04-14 19:17:14,027 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select commentID, commentSerialNumber,userID,commentContent,commentTime from comment_table where articleID = ? order by commentTime desc
+2020-04-14 19:17:14,028 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 3(Integer)
+2020-04-14 19:17:14,035 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 8
+2020-04-14 19:17:19,259 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: insert into comment_table( articleID, commentSerialNumber, userID, commentContent, commentTime ) values ( ?, ?, ?, ?, now() )
+2020-04-14 19:17:19,261 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 3(Integer), 14(Integer), zsp(String), 123(String)
+2020-04-14 19:17:19,305 DEBUG (BaseJdbcLogger.java:143)- <==    Updates: 1
+2020-04-14 19:17:19,314 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select commentID, commentSerialNumber,userID,commentContent,commentTime from comment_table where articleID = ? order by commentTime desc
+2020-04-14 19:17:19,315 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 3(Integer)
+2020-04-14 19:17:19,321 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 9
+2020-04-14 19:27:46,565 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:27:46,567 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:27:46,569 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:27:46,570 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead from article_table as a left join user_table as u on a.userID = u.userID where (a.userID = ? or ? = 0) and (u.userName like ? or ? is null) and (articleTitle like ? or ? is null) 
+2020-04-14 19:27:46,571 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:27:46,574 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:28:57,706 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:28:57,708 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:28:57,711 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:28:57,713 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead from article_table as a left join user_table as u on a.userID = u.userID where (a.userID = ? or ? = 0) and (u.userName like ? or ? is null) and (articleTitle like ? or ? is null) LIMIT ? 
+2020-04-14 19:28:57,714 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:28:57,718 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:30:05,594 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:30:05,595 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:30:05,598 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:30:05,603 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:30:05,605 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:30:05,610 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:31:46,953 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:31:46,954 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:31:46,955 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:31:46,958 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:31:46,960 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:31:46,962 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:31:51,286 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select commentID, commentSerialNumber,userID,commentContent,commentTime from comment_table where articleID = ? order by commentTime desc
+2020-04-14 19:31:51,286 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select articleID, articleTitle, articleCountent, pictureCatalog, a.userID, u.userName, articleIssueTime, articleRead from article_table as a left join user_table as u on a.userID = u.userID where a.articleID = ? 
+2020-04-14 19:31:51,287 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer)
+2020-04-14 19:31:51,287 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer)
+2020-04-14 19:31:51,288 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 0
+2020-04-14 19:31:51,289 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:31:54,004 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:31:54,005 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:31:54,007 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:31:54,010 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:31:54,012 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:31:54,015 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:31:55,867 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT userID,userAccount,usrePassword,userName,userRead,userIssue,userIntro FROM user_table WHERE (userID = ? OR ? = 0) AND (userAccount = ? OR ? IS NULL) 
+2020-04-14 19:31:55,868 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null
+2020-04-14 19:31:55,870 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:31:57,997 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:31:57,998 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:31:58,000 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:31:58,002 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:31:58,003 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:31:58,005 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:32:03,189 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select articleID, articleTitle, articleCountent, pictureCatalog, a.userID, u.userName, articleIssueTime, articleRead from article_table as a left join user_table as u on a.userID = u.userID where a.articleID = ? 
+2020-04-14 19:32:03,189 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select commentID, commentSerialNumber,userID,commentContent,commentTime from comment_table where articleID = ? order by commentTime desc
+2020-04-14 19:32:03,190 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer)
+2020-04-14 19:32:03,190 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer)
+2020-04-14 19:32:03,192 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:32:03,193 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 5
+2020-04-14 19:32:05,683 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:32:05,684 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:32:05,685 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:32:05,688 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:32:05,688 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:32:05,690 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:32:12,312 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select articleID, articleTitle, articleCountent, pictureCatalog, a.userID, u.userName, articleIssueTime, articleRead from article_table as a left join user_table as u on a.userID = u.userID where a.articleID = ? 
+2020-04-14 19:32:12,313 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer)
+2020-04-14 19:32:12,315 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:32:12,315 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select commentID, commentSerialNumber,userID,commentContent,commentTime from comment_table where articleID = ? order by commentTime desc
+2020-04-14 19:32:12,316 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer)
+2020-04-14 19:32:12,320 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 5
+2020-04-14 19:32:14,504 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:32:14,505 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:32:14,507 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:32:14,510 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:32:14,512 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:32:14,515 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:44:57,926 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:44:57,927 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:44:57,929 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:44:57,931 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:44:57,932 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:44:57,935 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:48:09,349 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:48:09,350 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:48:09,355 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:48:09,358 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:48:09,359 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:48:09,360 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:49:06,854 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:49:06,855 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:49:06,857 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:49:06,859 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:49:06,861 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:49:06,863 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:49:54,113 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:49:54,114 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:49:54,116 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:49:54,119 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:49:54,120 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:49:54,123 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:53:41,692 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:53:41,693 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:53:41,695 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:53:41,698 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:53:41,699 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:53:41,701 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:54:54,454 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:54:54,455 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:54:54,457 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:54:54,460 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:54:54,461 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:54:54,467 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:54:57,136 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select articleID, articleTitle, articleCountent, pictureCatalog, a.userID, u.userName, articleIssueTime, articleRead from article_table as a left join user_table as u on a.userID = u.userID where a.articleID = ? 
+2020-04-14 19:54:57,137 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer)
+2020-04-14 19:54:57,140 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select commentID, commentSerialNumber,userID,commentContent,commentTime from comment_table where articleID = ? order by commentTime desc
+2020-04-14 19:54:57,142 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer)
+2020-04-14 19:54:57,142 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:54:57,143 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 0
+2020-04-14 19:54:59,061 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:54:59,062 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:54:59,063 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:54:59,064 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:54:59,065 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:54:59,069 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:55:02,173 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select articleID, articleTitle, articleCountent, pictureCatalog, a.userID, u.userName, articleIssueTime, articleRead from article_table as a left join user_table as u on a.userID = u.userID where a.articleID = ? 
+2020-04-14 19:55:02,175 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select commentID, commentSerialNumber,userID,commentContent,commentTime from comment_table where articleID = ? order by commentTime desc
+2020-04-14 19:55:02,175 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer)
+2020-04-14 19:55:02,175 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer)
+2020-04-14 19:55:02,177 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:55:02,178 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 5
+2020-04-14 19:55:03,296 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:55:03,297 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:55:03,298 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:55:03,300 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:55:03,301 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:55:03,304 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:58:07,185 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:58:07,186 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:58:07,188 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:58:07,190 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:58:07,191 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:58:07,193 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 19:59:08,136 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 19:59:08,137 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 19:59:08,139 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 19:59:08,141 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 19:59:08,142 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 19:59:08,144 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:01:11,941 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:01:11,942 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:01:11,944 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:01:11,946 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:01:11,947 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:01:11,950 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:02:00,123 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:02:00,124 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:02:00,125 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:02:00,127 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:02:00,128 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:02:00,130 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:02:31,911 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:02:31,912 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:02:31,917 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:02:31,920 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:02:31,922 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:02:31,925 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:02:38,879 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select articleID, articleTitle, articleCountent, pictureCatalog, a.userID, u.userName, articleIssueTime, articleRead from article_table as a left join user_table as u on a.userID = u.userID where a.articleID = ? 
+2020-04-14 20:02:38,880 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer)
+2020-04-14 20:02:38,883 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:02:38,885 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select commentID, commentSerialNumber,userID,commentContent,commentTime from comment_table where articleID = ? order by commentTime desc
+2020-04-14 20:02:38,886 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer)
+2020-04-14 20:02:38,888 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 0
+2020-04-14 20:02:40,798 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:02:40,799 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:02:40,800 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:02:40,803 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:02:40,804 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:02:40,806 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:04:41,476 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:04:41,477 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:04:41,479 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:04:41,481 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:04:41,482 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:04:41,484 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:25,950 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:25,952 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:25,954 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:25,958 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:07:25,960 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:25,963 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:31,374 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:31,375 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:31,377 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:31,379 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:07:31,380 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:31,382 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:32,388 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:32,389 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:32,391 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:32,392 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle desc LIMIT ? 
+2020-04-14 20:07:32,393 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:32,395 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:33,244 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:33,245 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:33,246 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:33,248 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:07:33,249 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:33,251 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:34,083 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:34,085 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:34,087 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:34,089 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:07:34,090 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:34,092 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:35,884 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:35,884 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:35,886 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:35,888 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle desc LIMIT ? 
+2020-04-14 20:07:35,889 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:35,891 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:36,860 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:36,861 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:36,862 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:36,863 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:07:36,864 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:36,865 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:38,828 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:38,828 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:38,830 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:38,831 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:07:38,832 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:38,833 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:39,988 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:39,989 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:39,990 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:39,992 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle desc LIMIT ? 
+2020-04-14 20:07:39,992 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:39,994 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:42,413 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:42,413 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:42,414 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:42,415 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleIssueTime LIMIT ? 
+2020-04-14 20:07:42,416 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:42,417 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:44,540 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:44,540 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:44,541 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:44,543 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleIssueTime desc LIMIT ? 
+2020-04-14 20:07:44,543 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:44,545 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:45,307 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:45,308 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:45,309 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:45,311 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleIssueTime LIMIT ? 
+2020-04-14 20:07:45,311 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:45,312 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:46,020 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:46,020 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:46,021 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:46,022 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleIssueTime LIMIT ? 
+2020-04-14 20:07:46,023 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:46,024 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:46,730 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:46,731 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:46,732 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:46,733 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleIssueTime desc LIMIT ? 
+2020-04-14 20:07:46,735 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:46,736 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:07:47,595 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:07:47,595 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:07:47,596 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:07:47,597 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleIssueTime LIMIT ? 
+2020-04-14 20:07:47,598 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:07:47,599 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:08:08,693 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:08:08,693 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:08:08,694 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:08:08,696 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleRead LIMIT ? 
+2020-04-14 20:08:08,697 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:08:08,699 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:08:10,187 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:08:10,188 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:08:10,190 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:08:10,192 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleRead desc LIMIT ? 
+2020-04-14 20:08:10,193 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:08:10,195 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:08:14,804 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:08:14,805 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:08:14,806 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:08:14,809 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleRead LIMIT ? 
+2020-04-14 20:08:14,809 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:08:14,811 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:09:23,677 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:09:23,678 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:09:23,680 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:09:23,683 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:09:23,683 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:09:23,685 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:09:27,757 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:09:27,757 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:09:27,758 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:09:27,760 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:09:27,761 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:09:27,763 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:09:28,259 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:09:28,260 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:09:28,261 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:09:28,262 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle desc LIMIT ? 
+2020-04-14 20:09:28,263 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:09:28,265 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:09:29,292 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:09:29,292 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:09:29,293 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:09:29,295 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:09:29,296 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:09:29,298 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:09:41,988 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:09:41,989 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:09:41,990 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:09:41,992 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:09:41,992 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:09:41,994 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:10:02,545 INFO (StartupInfoLogger.java:55)- Starting BlogGardenSystemApplication on DESKTOP-627VPTB with PID 11216 (started by ZSP in E:\Program Files (x86)\JetBrains\JavaCode\blog-garden-system)
+2020-04-14 20:10:02,607 DEBUG (StartupInfoLogger.java:56)- Running with Spring Boot v2.2.4.RELEASE, Spring v5.2.3.RELEASE
+2020-04-14 20:10:02,607 INFO (SpringApplication.java:651)- No active profile set, falling back to default profiles: default
+2020-04-14 20:10:06,041 INFO (StartupInfoLogger.java:61)- Started BlogGardenSystemApplication in 4.628 seconds (JVM running for 9.179)
+2020-04-14 20:10:48,850 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:10:48,850 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:10:48,850 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:10:48,881 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:10:48,881 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:10:48,881 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:10:48,912 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:10:48,912 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:10:48,912 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:10:48,928 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle desc LIMIT ? 
+2020-04-14 20:10:48,928 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:10:48,928 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:10:48,928 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:10:48,928 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:10:48,928 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:10:48,944 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:10:48,944 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:10:48,944 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:10:57,709 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:10:57,709 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:10:57,709 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:10:57,725 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle desc LIMIT ? 
+2020-04-14 20:10:57,725 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:10:57,725 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:11:31,691 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:11:31,691 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:11:31,691 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:11:31,691 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:11:31,706 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:11:31,706 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:17,813 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:17,814 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:17,816 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:17,821 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:13:17,822 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:17,826 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:20,297 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:20,298 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:20,301 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:20,304 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:13:20,306 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:20,309 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:21,087 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:21,088 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:21,090 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:21,094 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle desc LIMIT ? 
+2020-04-14 20:13:21,095 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:21,130 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:21,983 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:21,985 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:21,987 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:21,991 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:13:21,993 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:21,996 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:23,896 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:23,897 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:23,899 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:23,904 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:13:23,905 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:23,908 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:24,671 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:24,672 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:24,673 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:24,677 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle desc LIMIT ? 
+2020-04-14 20:13:24,678 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:24,680 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:25,566 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:25,567 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:25,569 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:25,572 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:13:25,573 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:25,576 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:27,022 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:27,023 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:27,024 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:27,028 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleRead LIMIT ? 
+2020-04-14 20:13:27,029 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:27,032 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:27,829 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:27,830 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:27,831 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:27,834 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleRead desc LIMIT ? 
+2020-04-14 20:13:27,835 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:27,838 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:28,544 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:28,544 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:28,546 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:28,549 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:13:28,551 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:28,553 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:33,843 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:33,843 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:33,845 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:33,848 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:13:33,849 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:33,852 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:34,422 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:34,424 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:34,425 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:34,428 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle desc LIMIT ? 
+2020-04-14 20:13:34,429 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:34,431 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:34,958 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:34,959 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:34,960 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:34,964 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:13:34,965 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:34,968 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:35,669 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:35,670 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:35,671 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:35,675 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:13:35,676 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:35,678 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:36,293 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:36,294 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:36,296 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:36,300 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle desc LIMIT ? 
+2020-04-14 20:13:36,301 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:36,304 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:37,854 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:37,855 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:37,856 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:37,859 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:13:37,860 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:37,862 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:39,806 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:39,806 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:39,807 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:39,810 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:13:39,810 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:39,812 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:40,238 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:40,239 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:40,240 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:40,242 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle desc LIMIT ? 
+2020-04-14 20:13:40,242 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:40,244 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:41,477 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:41,478 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:41,479 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:41,483 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:13:41,484 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:41,486 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:43,068 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:43,069 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:43,070 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:43,072 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle LIMIT ? 
+2020-04-14 20:13:43,073 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:43,074 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:44,037 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:44,038 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:44,039 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:44,042 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleTitle desc LIMIT ? 
+2020-04-14 20:13:44,042 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:44,044 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:13:44,237 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:13:44,237 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null
+2020-04-14 20:13:44,238 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:13:44,241 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:13:44,241 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 1(Integer), 1(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:13:44,243 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:14:10,126 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:14:10,127 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 0(Integer), 0(Integer), null, null, null, null
+2020-04-14 20:14:10,128 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:14:10,131 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleIssueTime desc LIMIT ? 
+2020-04-14 20:14:10,132 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 0(Integer), 0(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:14:10,161 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 3
+2020-04-14 20:14:23,635 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT userID,userAccount,usrePassword,userName,userRead,userIssue,userIntro FROM user_table WHERE (userID = ? OR ? = 0) AND (userAccount = ? OR ? IS NULL) 
+2020-04-14 20:14:23,636 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 0(Integer), 0(Integer), user1@blog.com(String), user1@blog.com(String)
+2020-04-14 20:14:23,639 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:14:26,852 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:14:26,853 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null
+2020-04-14 20:14:26,855 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:14:26,859 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:14:26,859 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:14:26,861 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:14:32,153 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select commentID, commentSerialNumber,userID,commentContent,commentTime from comment_table where articleID = ? order by commentTime desc
+2020-04-14 20:14:32,153 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select articleID, articleTitle, articleCountent, pictureCatalog, a.userID, u.userName, articleIssueTime, articleRead from article_table as a left join user_table as u on a.userID = u.userID where a.articleID = ? 
+2020-04-14 20:14:32,154 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 3(Integer)
+2020-04-14 20:14:32,154 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 3(Integer)
+2020-04-14 20:14:32,159 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:14:32,160 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 9
+2020-04-14 20:14:36,947 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:14:36,948 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null
+2020-04-14 20:14:36,949 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:14:36,953 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:14:36,954 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:14:36,957 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:17:36,693 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:17:36,694 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null
+2020-04-14 20:17:36,696 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:17:36,700 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:17:36,701 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:17:36,704 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:19:21,009 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:19:21,010 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null
+2020-04-14 20:19:21,012 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:19:21,017 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:19:21,018 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:19:21,020 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:20:06,898 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:20:06,899 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null
+2020-04-14 20:20:06,901 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:20:06,905 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleID desc LIMIT ? 
+2020-04-14 20:20:06,906 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:20:06,908 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:20:15,265 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: delete a, co from article_table as a left join comment_table as co on a.articleID = co.articleID where a.articleID = ? 
+2020-04-14 20:20:15,266 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 3(Integer)
+2020-04-14 20:20:15,342 DEBUG (BaseJdbcLogger.java:143)- <==    Updates: 10
+2020-04-14 20:20:15,368 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:20:15,370 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null
+2020-04-14 20:20:15,371 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:20:19,318 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:20:19,319 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null
+2020-04-14 20:20:19,321 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:20:20,172 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:20:20,173 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null
+2020-04-14 20:20:20,174 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:20:20,749 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:20:20,750 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null
+2020-04-14 20:20:20,752 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:21:33,795 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT userID,userAccount,usrePassword,userName,userRead,userIssue,userIntro FROM user_table WHERE (userID = ? OR ? = 0) AND (userAccount = ? OR ? IS NULL) 
+2020-04-14 20:21:33,796 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null
+2020-04-14 20:21:33,798 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:21:46,519 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:21:46,520 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 0(Integer), 0(Integer), null, null, null, null
+2020-04-14 20:21:46,521 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:21:46,526 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT articleID, articleTitle, a.userID, u.userName, articleIssueTime, articleRead FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) order by articleIssueTime desc LIMIT ? 
+2020-04-14 20:21:46,526 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 0(Integer), 0(Integer), null, null, null, null, 10(Integer)
+2020-04-14 20:21:46,528 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 2
+2020-04-14 20:21:49,533 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select commentID, commentSerialNumber,userID,commentContent,commentTime from comment_table where articleID = ? order by commentTime desc
+2020-04-14 20:21:49,534 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select articleID, articleTitle, articleCountent, pictureCatalog, a.userID, u.userName, articleIssueTime, articleRead from article_table as a left join user_table as u on a.userID = u.userID where a.articleID = ? 
+2020-04-14 20:21:49,535 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer)
+2020-04-14 20:21:49,535 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer)
+2020-04-14 20:21:49,537 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:21:49,559 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 0
+2020-04-14 20:22:00,938 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: insert into comment_table( articleID, commentSerialNumber, userID, commentContent, commentTime ) values ( ?, ?, ?, ?, now() )
+2020-04-14 20:22:00,939 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 0(Integer), user1(String), 测试(String)
+2020-04-14 20:22:00,994 DEBUG (BaseJdbcLogger.java:143)- <==    Updates: 1
+2020-04-14 20:22:01,001 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: select commentID, commentSerialNumber,userID,commentContent,commentTime from comment_table where articleID = ? order by commentTime desc
+2020-04-14 20:22:01,002 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer)
+2020-04-14 20:22:01,004 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:22:49,530 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: update article_table set articleRead = articleRead+ 1 where articleID = ? 
+2020-04-14 20:22:49,530 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer)
+2020-04-14 20:22:49,873 DEBUG (BaseJdbcLogger.java:143)- <==    Updates: 1
+2020-04-14 20:22:49,873 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: update user_table set userRead = userRead+1 where userID = ? 
+2020-04-14 20:22:49,873 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer)
+2020-04-14 20:22:49,904 DEBUG (BaseJdbcLogger.java:143)- <==    Updates: 1
+2020-04-14 20:23:18,064 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:23:18,066 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null
+2020-04-14 20:23:18,068 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:23:19,707 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT userID,userAccount,usrePassword,userName,userRead,userIssue,userIntro FROM user_table WHERE (userID = ? OR ? = 0) AND (userAccount = ? OR ? IS NULL) 
+2020-04-14 20:23:19,708 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null
+2020-04-14 20:23:19,709 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1
+2020-04-14 20:24:34,553 DEBUG (BaseJdbcLogger.java:143)- ==>  Preparing: SELECT count(0) FROM article_table AS a LEFT JOIN user_table AS u ON a.userID = u.userID WHERE (a.userID = ? OR ? = 0) AND (u.userName LIKE ? OR ? IS NULL) AND (articleTitle LIKE ? OR ? IS NULL) 
+2020-04-14 20:24:34,554 DEBUG (BaseJdbcLogger.java:143)- ==> Parameters: 2(Integer), 2(Integer), null, null, null, null
+2020-04-14 20:24:34,556 DEBUG (BaseJdbcLogger.java:143)- <==      Total: 1

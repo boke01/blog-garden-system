@@ -1,0 +1,32 @@
+server:
+  servlet:
+    context-path: /blog
+    session:
+      timeout: 30m
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+
+mybatis:
+  type-aliases-package: com.zsp.bloggardensystem.entity
+  mapper-locations: classpath:mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+
+spring:
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/blog_garden?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: Zsp_1998
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+logging:
+  config: classpath:log/log4j2.xml

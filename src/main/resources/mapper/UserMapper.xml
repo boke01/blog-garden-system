@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zsp.bloggardensystem.mapper.UserMapper">
+
+    <select id="getUser" resultType="UserEntity">
+      SELECT userID,userAccount,usrePassword,userName,userRead,userIssue,userIntro
+      FROM user_table
+      WHERE (userID = #{userID} OR #{userID} = 0) AND (userAccount = #{userAccount} OR #{userAccount} IS NULL)
+    </select>
+
+    <update id="updateUserInfo">
+        update user_table
+        set userIntro = #{userIntro}
+        where userID = #{userID}
+    </update>
+
+    <insert id="addUser">
+        insert into user_table(userAccount,usrePassword,userName)
+        values (#{userAccount},#{usrePassword},#{userName})
+    </insert>
+</mapper>
