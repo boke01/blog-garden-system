@@ -1,5 +1,6 @@
 package com.zsp.bloggardensystem.mapper;
 
+import com.zsp.bloggardensystem.dto.request.article.AddReadRequest;
 import com.zsp.bloggardensystem.dto.request.user.LoginRequest;
 import com.zsp.bloggardensystem.dto.request.user.UserInfoRequest;
 import com.zsp.bloggardensystem.entity.UserEntity;
@@ -22,4 +23,8 @@ public interface UserMapper {
     int updateUserInfo(UserInfoRequest request)throws RuntimeException;
 
     int addUser(LoginRequest request)throws RuntimeException;
+
+    int addUserRead(AddReadRequest request)throws RuntimeException;
+
+    int addUserIssue(@Param("userID") int userID,@Param("value") int value)throws RuntimeException;
 }

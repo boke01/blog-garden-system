@@ -18,4 +18,16 @@
         insert into user_table(userAccount,usrePassword,userName)
         values (#{userAccount},#{usrePassword},#{userName})
     </insert>
+
+    <update id="addUserRead">
+          update user_table
+          set userRead = userRead+1
+          where userID = #{userID}
+    </update>
+
+    <update id="addUserIssue">
+          update user_table
+          set userIssue = userIssue+ #{value}
+          where userID = #{userID}
+    </update>
 </mapper>

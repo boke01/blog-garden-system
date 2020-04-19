@@ -5,7 +5,7 @@
 <mapper namespace="com.zsp.bloggardensystem.mapper.CommentMapper">
 
     <select id="getComment" resultType="CommentEntity">
-        select c.commentID, c.commentSerialNumber,c.userID,u.userID,c.commentContent,c.commentTime
+        select c.commentID,c.articleID, c.commentSerialNumber,c.userID,u.userName,c.commentContent,c.commentTime
         from comment_table as c inner join user_table as u on c.userID = u.userID
         where c.articleID = #{articleID}
         order by c.commentTime desc

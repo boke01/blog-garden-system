@@ -49,7 +49,7 @@ public class ArticleController {
     }
 
     @DeleteMapping("/article")
-    public BaseResponse deleteArticle(@RequestParam int articleID) throws RuntimeException{
-        return articleService.deleteArticle(articleID);
+    public BaseResponse deleteArticle(@RequestParam int articleID,@RequestParam int userID) throws RuntimeException{
+        return articleService.deleteArticle(articleID,userID);
     }
 }

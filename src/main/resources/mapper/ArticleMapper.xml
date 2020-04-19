@@ -14,12 +14,6 @@
       and (articleTitle like #{articleTitle} or #{articleTitle} is null)
     </select>
 
-    <update id="addUserRead">
-          update user_table
-          set userRead = userRead+1
-          where userID = #{userID}
-    </update>
-
     <update id="addArticleRead">
           update article_table
           set articleRead = articleRead+ 1
@@ -27,24 +21,23 @@
     </update>
 
     <select id="getArticle" resultType="ArticleEntity">
-        select articleID,
+        select a.articleID,
         articleTitle,
-        articleCountent,
+        cn.articleContent,
         pictureCatalog,
         a.userID,
         u.userName,
         articleIssueTime,
         articleRead
-      from article_table as a inner join content_tabl as c on a.articleID = c.articleID
+      from article_table as a join content_table as cn on a.articleID = cn.articleID
       left join user_table as u on a.userID = u.userID
       where a.articleID = #{articleID}
     </select>
 
     <update id="updateArticle">
-        update a,c
-        set a.articleTitle = #{articleTitle}, c.articleCountent = #{articleCountent}
-        from article_table as a inner join content_tabl as c on a.articleID = c.articleID
-        where articleID = #{articleID}
+        update article_table as a , content_table as cn
+        set a.articleTitle = #{articleTitle}, cn.articleContent = #{articleContent}
+        where a.articleID = #{articleID} and cn.articleID = #{articleID}
     </update>
 
     <insert id="addArticle"  useGeneratedKeys="true" keyProperty="articleID">
@@ -63,15 +56,15 @@
     <insert id="addContent">
         insert into content_table(
         articleID,
-        articleCountent)
+        articleContent)
         values (
         #{articleID},
-        #{articleCountent})
+        #{articleContent})
     </insert>
 
     <delete id="deleteArticle">
-        delete a, c, co
-        from article_table as a inner join content_tabl as c on a.articleID = c.articleID left join comment_table as co on a.articleID = co.articleID
+        delete a, cn, co
+        from article_table as a join content_tabl as cn on a.articleID = cn.articleID left join comment_table as co on a.articleID = co.articleID
         where a.articleID = #{articleID}
     </delete>
 </mapper>

@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
     public BaseResponse addUser(LoginRequest request) throws RuntimeException {
         BaseResponse response = new BaseResponse();
         UserEntity userEntity = userMapper.getUser(0,request.getUserAccount());
-        if(userEntity == null || userEntity.getUserID() != 0){
+        if(userEntity == null || userEntity.getUserID() == 0){
             request.setUsrePassword(Md5Util.md5Encode(request.getUsrePassword()));
             if(userMapper.addUser(request) == 1){
                 response.setSuccess(true);

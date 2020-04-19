@@ -24,5 +24,5 @@ public interface ArticleService {
 
     BaseResponse addArticle(ArticleEntity request)throws RuntimeException;
 
-    BaseResponse deleteArticle(int articleID)throws RuntimeException;
+    BaseResponse deleteArticle(int articleID, int userID)throws RuntimeException;
 }

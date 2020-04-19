@@ -29,6 +29,9 @@ public class ArticleServiceImpl implements ArticleService {
     @Autowired
     private ArticleMapper articleMapper;
 
+    @Autowired
+    private UserMapper userMapper;
+
     @Override
     public ArticleListResponse getArticleList(ArticleListRequest request) throws RuntimeException {
         String orderBy = request.getPageInfo().getOrderBy();
@@ -67,7 +70,7 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public BaseResponse addRead(AddReadRequest request) throws RuntimeException {
         BaseResponse response = new BaseResponse();
-        int result = articleMapper.addArticleRead(request) + articleMapper.addUserRead(request);
+        int result = articleMapper.addArticleRead(request) + userMapper.addUserRead(request);
         if(result > 1){
             response.setSuccess(true);
         }
@@ -95,19 +98,19 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public BaseResponse addArticle(ArticleEntity request) throws RuntimeException {
         BaseResponse response = new BaseResponse();
-        int articleID = articleMapper.addArticle(request);
-        request.setArticleID(articleID);
-        int result = articleMapper.addContent(request);
+        int result = articleMapper.addArticle(request) + articleMapper.addContent(request);
         if(result > 0){
+            userMapper.addUserIssue(request.getUserID(),1);
             response.setSuccess(true);
         }
         return response;
     }
 
     @Override
-    public BaseResponse deleteArticle(int articleID) throws RuntimeException {
+    public BaseResponse deleteArticle(int articleID,int userID) throws RuntimeException {
         BaseResponse response = new BaseResponse();
         int result = articleMapper.deleteArticle(articleID);
+        userMapper.addUserIssue(userID,-1);
         if(result > 0){
             response.setSuccess(true);
         }

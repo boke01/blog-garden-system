@@ -20,8 +20,6 @@ import java.util.List;
 public interface ArticleMapper {
     List<ArticleEntity> articleEntityList(@Param("userID") int userID, @Param("userName") String userName, @Param("articleTitle") String articleTitle) throws RuntimeException;
 
-    int addUserRead(AddReadRequest request)throws RuntimeException;
-
     int addArticleRead(AddReadRequest request)throws RuntimeException;
 
     ArticleEntity getArticle(@Param("articleID") int articleID)throws RuntimeException;

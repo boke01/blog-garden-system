@@ -10,7 +10,7 @@ package com.zsp.bloggardensystem.entity;
 public class ArticleEntity {
     private int articleID;
     private String articleTitle;
-    private String articleCountent;
+    private String articleContent;
     private String pictureCatalog;
     private int userID;
     private String userName;
@@ -33,12 +33,12 @@ public class ArticleEntity {
         this.articleTitle = articleTitle;
     }
 
-    public String getArticleCountent() {
-        return articleCountent;
+    public String getArticleContent() {
+        return articleContent;
     }
 
-    public void setArticleCountent(String articleCountent) {
-        this.articleCountent = articleCountent;
+    public void setArticleContent(String articleContent) {
+        this.articleContent = articleContent;
     }
 
     public String getPictureCatalog() {
@@ -86,7 +86,7 @@ public class ArticleEntity {
         return "ArticleEntity{" +
                 "articleID=" + articleID +
                 ", articleTitle='" + articleTitle + '\'' +
-                ", articleCountent='" + articleCountent + '\'' +
+                ", articleCountent='" + articleContent + '\'' +
                 ", pictureCatalog='" + pictureCatalog + '\'' +
                 ", userID=" + userID +
                 ", userName='" + userName + '\'' +
