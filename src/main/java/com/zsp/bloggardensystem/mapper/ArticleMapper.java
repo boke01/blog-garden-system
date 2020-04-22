@@ -30,6 +30,6 @@ public interface ArticleMapper {
 
     int addContent(ArticleEntity request)throws RuntimeException;
 
-    int deleteArticle(int articleID)throws RuntimeException;
+    int deleteArticle(@Param("articleID") int articleID)throws RuntimeException;
 }
 

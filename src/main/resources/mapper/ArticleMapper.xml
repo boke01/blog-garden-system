@@ -64,7 +64,7 @@
 
     <delete id="deleteArticle">
         delete a, cn, co
-        from article_table as a join content_tabl as cn on a.articleID = cn.articleID left join comment_table as co on a.articleID = co.articleID
+        from article_table as a join content_table as cn on a.articleID = cn.articleID left join comment_table as co on a.articleID = co.articleID
         where a.articleID = #{articleID}
     </delete>
 </mapper>

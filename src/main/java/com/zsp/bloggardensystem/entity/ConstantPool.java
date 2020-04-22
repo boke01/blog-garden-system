@@ -12,6 +12,4 @@ public class ConstantPool {
     public static final String ACCOUNT_ERROR = "Account does not exist!";
     public static final String ARTICLEID_ERROR = "User does not exist!";
     public static final String UPDATE_ERROR = "Data update failed!";
-
-
 }
