@@ -31,6 +31,7 @@ public class NoticeServiceImpl implements NoticeService {
     public NoticeRespons getNotice(int userID) throws RuntimeException {
         NoticeRespons respons = new NoticeRespons();
         respons.setResult(noticeMapper.getNotice(userID));
+        respons.setSuccess(true);
         return respons;
     }
 
