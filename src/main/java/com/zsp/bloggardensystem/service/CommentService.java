@@ -1,7 +1,7 @@
 package com.zsp.bloggardensystem.service;
 
 import com.zsp.bloggardensystem.dto.response.BaseResponse;
-import com.zsp.bloggardensystem.dto.response.comment.CommentRespons;
+import com.zsp.bloggardensystem.dto.response.comment.CommentResponse;
 import com.zsp.bloggardensystem.entity.CommentEntity;
 
 /**
@@ -12,7 +12,7 @@ import com.zsp.bloggardensystem.entity.CommentEntity;
  **/
 public interface CommentService {
 
-    CommentRespons getComment(int articleID)throws RuntimeException;
+    CommentResponse getComment(int articleID)throws RuntimeException;
 
     BaseResponse addComment(CommentEntity request)throws RuntimeException;
 }

@@ -36,7 +36,7 @@
 
     <update id="updateArticle">
         update article_table as a , content_table as cn
-        set a.articleTitle = #{articleTitle}, cn.articleContent = #{articleContent}
+        set a.articleTitle = #{articleTitle}, cn.articleContent = #{articleContent}, a.pictureCatalog = #{pictureCatalog}
         where a.articleID = #{articleID} and cn.articleID = #{articleID}
     </update>
 

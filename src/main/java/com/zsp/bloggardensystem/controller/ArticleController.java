@@ -4,7 +4,7 @@ import com.zsp.bloggardensystem.dto.request.article.AddReadRequest;
 import com.zsp.bloggardensystem.dto.request.article.ArticleListRequest;
 import com.zsp.bloggardensystem.dto.response.BaseResponse;
 import com.zsp.bloggardensystem.dto.response.article.ArticleListResponse;
-import com.zsp.bloggardensystem.dto.response.article.ArticleRespons;
+import com.zsp.bloggardensystem.dto.response.article.ArticleResponse;
 import com.zsp.bloggardensystem.entity.ArticleEntity;
 import com.zsp.bloggardensystem.service.ArticleService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class ArticleController {
     }
 
     @GetMapping("/article")
-    public ArticleRespons getArticle(@RequestParam int articleID) throws RuntimeException{
+    public ArticleResponse getArticle(@RequestParam int articleID) throws RuntimeException{
         return articleService.getArticle(articleID);
     }
 

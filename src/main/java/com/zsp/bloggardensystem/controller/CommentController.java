@@ -1,8 +1,7 @@
 package com.zsp.bloggardensystem.controller;
 
 import com.zsp.bloggardensystem.dto.response.BaseResponse;
-import com.zsp.bloggardensystem.dto.response.article.ArticleRespons;
-import com.zsp.bloggardensystem.dto.response.comment.CommentRespons;
+import com.zsp.bloggardensystem.dto.response.comment.CommentResponse;
 import com.zsp.bloggardensystem.entity.CommentEntity;
 import com.zsp.bloggardensystem.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +21,7 @@ public class CommentController {
     private CommentService commentService;
 
     @GetMapping("/comment")
-    public CommentRespons getComment(@RequestParam int articleID) throws RuntimeException{
+    public CommentResponse getComment(@RequestParam int articleID) throws RuntimeException{
         return commentService.getComment(articleID);
     }
 

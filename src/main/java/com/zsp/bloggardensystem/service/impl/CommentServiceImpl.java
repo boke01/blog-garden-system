@@ -1,15 +1,13 @@
 package com.zsp.bloggardensystem.service.impl;
 
 import com.zsp.bloggardensystem.dto.response.BaseResponse;
-import com.zsp.bloggardensystem.dto.response.comment.CommentRespons;
+import com.zsp.bloggardensystem.dto.response.comment.CommentResponse;
 import com.zsp.bloggardensystem.entity.CommentEntity;
-import com.zsp.bloggardensystem.mapper.ArticleMapper;
 import com.zsp.bloggardensystem.mapper.CommentMapper;
 import com.zsp.bloggardensystem.service.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -26,8 +24,8 @@ public class CommentServiceImpl implements CommentService {
     private CommentMapper commentMapper;
 
     @Override
-    public CommentRespons getComment(int articleID) throws RuntimeException {
-        CommentRespons respons = new CommentRespons();
+    public CommentResponse getComment(int articleID) throws RuntimeException {
+        CommentResponse respons = new CommentResponse();
         respons.setResult(AssembleComment(commentMapper.getComment(articleID)));
         respons.setSuccess(true);
         return respons;

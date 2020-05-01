@@ -10,7 +10,7 @@ import com.zsp.bloggardensystem.entity.ArticleEntity;
  * @description: 文章响应体
  **/
 
-public class ArticleRespons extends BaseResponse {
+public class ArticleResponse extends BaseResponse {
     private ArticleEntity article;
 
     public ArticleEntity getArticle() {

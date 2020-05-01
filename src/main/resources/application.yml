@@ -31,4 +31,8 @@ pagehelper:
 logging:
   config: classpath:log/log4j2.xml
 
-
+qiniu:
+  accessKey: 1gnpf7K2nMhHPUyCQBCcRidIruuy1FUUxHNVauRu
+  secretKey: 2hw3ar8VeMNSXR6i5r3vzEL4lmPcUMtaYz6d3Ej_
+  bucket: blog-test-01
+  path: http://q9e43yewd.bkt.clouddn.com

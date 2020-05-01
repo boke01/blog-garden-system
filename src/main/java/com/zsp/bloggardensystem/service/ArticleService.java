@@ -4,7 +4,7 @@ import com.zsp.bloggardensystem.dto.request.article.AddReadRequest;
 import com.zsp.bloggardensystem.dto.request.article.ArticleListRequest;
 import com.zsp.bloggardensystem.dto.response.BaseResponse;
 import com.zsp.bloggardensystem.dto.response.article.ArticleListResponse;
-import com.zsp.bloggardensystem.dto.response.article.ArticleRespons;
+import com.zsp.bloggardensystem.dto.response.article.ArticleResponse;
 import com.zsp.bloggardensystem.entity.ArticleEntity;
 
 /**
@@ -18,7 +18,7 @@ public interface ArticleService {
 
     BaseResponse addRead(AddReadRequest request)throws RuntimeException;
 
-    ArticleRespons getArticle(int articleID)throws RuntimeException;
+    ArticleResponse getArticle(int articleID)throws RuntimeException;
 
     BaseResponse updateArticle(ArticleEntity request)throws RuntimeException;
 

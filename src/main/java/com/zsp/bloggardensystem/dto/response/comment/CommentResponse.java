@@ -12,7 +12,7 @@ import java.util.List;
  * @description: 评论返回体
  **/
 
-public class CommentRespons extends BaseResponse {
+public class CommentResponse extends BaseResponse {
     private List<CommentEntity> result;
 
     public List<CommentEntity> getResult() {

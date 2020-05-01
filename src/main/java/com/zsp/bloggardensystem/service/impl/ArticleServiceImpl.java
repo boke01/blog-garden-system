@@ -6,13 +6,14 @@ import com.zsp.bloggardensystem.dto.request.article.AddReadRequest;
 import com.zsp.bloggardensystem.dto.request.article.ArticleListRequest;
 import com.zsp.bloggardensystem.dto.response.BaseResponse;
 import com.zsp.bloggardensystem.dto.response.article.ArticleListResponse;
-import com.zsp.bloggardensystem.dto.response.article.ArticleRespons;
+import com.zsp.bloggardensystem.dto.response.article.ArticleResponse;
 import com.zsp.bloggardensystem.entity.ArticleEntity;
 import com.zsp.bloggardensystem.mapper.ArticleMapper;
-import com.zsp.bloggardensystem.mapper.CommentMapper;
 import com.zsp.bloggardensystem.mapper.UserMapper;
 import com.zsp.bloggardensystem.service.ArticleService;
+import com.zsp.bloggardensystem.util.ImageProcessingUtil;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -31,6 +32,15 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Value("${qiniu.accessKey}")
+    private String accessKey;
+
+    @Value("${qiniu.secretKey}")
+    private String secretKey;
+
+    @Value("${qiniu.bucket}")
+    private String bucket;
 
     @Override
     public ArticleListResponse getArticleList(ArticleListRequest request) throws RuntimeException {
@@ -78,8 +88,8 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
-    public ArticleRespons getArticle(int articleID) {
-        ArticleRespons respons = new ArticleRespons();
+    public ArticleResponse getArticle(int articleID) {
+        ArticleResponse respons = new ArticleResponse();
         respons.setArticle(articleMapper.getArticle(articleID));
         respons.setSuccess(true);
         return respons;
@@ -109,9 +119,11 @@ public class ArticleServiceImpl implements ArticleService {
     @Override
     public BaseResponse deleteArticle(int articleID,int userID) throws RuntimeException {
         BaseResponse response = new BaseResponse();
+        String pictureCatalog = articleMapper.getArticle(articleID).getPictureCatalog();
         int result = articleMapper.deleteArticle(articleID);
         userMapper.addUserIssue(userID,-1);
         if(result > 0){
+            ImageProcessingUtil.deleteImg(pictureCatalog,accessKey,secretKey,bucket);
             response.setSuccess(true);
         }
         return response;
